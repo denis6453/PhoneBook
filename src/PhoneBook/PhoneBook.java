@@ -2,10 +2,7 @@ package PhoneBook;
 
 import User.User;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PhoneBook {
     private HashMap<User, List<Long>> phoneBook;
@@ -21,6 +18,23 @@ public class PhoneBook {
         phoneBook.put(user, numbers);
     }
 
+    public ArrayList<User> searchUserByPhone (HashMap<User, List<Long>> phoneBook, Long phoneNumber) {
+        List<Map.Entry<User, List<Long>>> list = new ArrayList<>(phoneBook.entrySet());
+
+        ArrayList<User> findUsers = new ArrayList<>();
+
+        for (Map.Entry<User, List<Long>> entry : list) {
+            if (entry.getValue().contains(phoneNumber)) {
+                findUsers.add(entry.getKey());
+            }
+         }
+        return findUsers;
+    }
+
+    public void removePhone (HashMap<User, List<Long>> phoneBook, User user, Long phoneNumber) {
+        phoneBook.get(user).remove(phoneNumber);
+    }
+
 
     public static void printPhoneBook (HashMap<User, List<Long>> phoneBook) {
         List<Map.Entry<User, List<Long>>> list = new ArrayList<>(phoneBook.entrySet());
@@ -30,4 +44,6 @@ public class PhoneBook {
             System.out.println("Имя: " + entry.getKey().getName() + ", Телефоны: " + entry.getValue());
         }
     }
+
+
 }

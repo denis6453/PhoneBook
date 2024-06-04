@@ -24,6 +24,13 @@ public class User {
         return nextId++;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
