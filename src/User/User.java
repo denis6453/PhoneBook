@@ -8,39 +8,22 @@ public class User {
     private int id;
     private static int nextId = 1;
     private String name;
-    private String phoneNumber;
 
 
-    public User(String name, String phoneNumber) {
+    public User(String name) {
         this.id = nextId();
         this.name = name;
-        this.phoneNumber = phoneNumber;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-
-
-
 
     private static int nextId () {
         return nextId++;
     }
 
-//    @Override
-//    public String toString() {
-//        return "User{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", phones = " + phoneBook.getPhoneBookByUser(this) +
-//                '}';
-//    }
 
     @Override
     public boolean equals(Object o) {
